@@ -1,6 +1,5 @@
-# BOT ZDG
+# BONA BOT
 
-Hi, this is the implementation example of <a href="https://github.com/pedroslopez/whatsapp-web.js">wweb.js</a>
 
 Watch the tutorials:
 
@@ -20,5 +19,5 @@ Watch the tutorials:
 
 ## Support Me
 
-You can make a support for this work by <a href="https://comunidadezdg.com.br">Comunidade ZDG - Pedrinho da NASA</a>. Thanks
-"# bot-zdg" 
+You can make a support for this work by <a href="https://bonaccini.vercel.app">Entre em contato</a>. Thanks
+"#bona-bot" 
