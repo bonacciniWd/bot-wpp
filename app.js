@@ -51,42 +51,42 @@ const client = new Client({
 client.initialize();
 
 io.on('connection', function(socket) {
-  socket.emit('message', '© BOT-ZDG - Iniciado');
+  socket.emit('message', '© Bona-Bot iniciado');
   socket.emit('qr', './icon.svg');
 
 client.on('qr', (qr) => {
     console.log('QR RECEIVED', qr);
     qrcode.toDataURL(qr, (err, url) => {
       socket.emit('qr', url);
-      socket.emit('message', '© BOT-ZDG QRCode recebido, aponte a câmera  seu celular!');
+      socket.emit('message', '© Bona-Bot QRCode recebido, aponte a câmera  seu celular!');
     });
 });
 
 client.on('ready', () => {
-    socket.emit('ready', '© BOT-ZDG Dispositivo pronto!');
-    socket.emit('message', '© BOT-ZDG Dispositivo pronto!');
+    socket.emit('ready', '© Bona-Bot Dispositivo pronto!');
+    socket.emit('message', '© Bona-Bot Dispositivo pronto!');
     socket.emit('qr', './check.svg')	
-    console.log('© BOT-ZDG Dispositivo pronto');
+    console.log('© Bona-Bot Dispositivo pronto');
 });
 
 client.on('authenticated', () => {
-    socket.emit('authenticated', '© BOT-ZDG Autenticado!');
-    socket.emit('message', '© BOT-ZDG Autenticado!');
-    console.log('© BOT-ZDG Autenticado');
+    socket.emit('authenticated', '© Bona-Bot Autenticado!');
+    socket.emit('message', '© Bona-Bot Autenticado!');
+    console.log('© Bona-Bot Autenticado');
 });
 
 client.on('auth_failure', function() {
-    socket.emit('message', '© BOT-ZDG Falha na autenticação, reiniciando...');
-    console.error('© BOT-ZDG Falha na autenticação');
+    socket.emit('message', '© Bona-Bot Falha na autenticação, reiniciando...');
+    console.error('© Bona-Bot Falha na autenticação');
 });
 
 client.on('change_state', state => {
-  console.log('© BOT-ZDG Status de conexão: ', state );
+  console.log('© Bona-Bot Status de conexão: ', state );
 });
 
 client.on('disconnected', (reason) => {
-  socket.emit('message', '© BOT-ZDG Cliente desconectado!');
-  console.log('© BOT-ZDG Cliente desconectado', reason);
+  socket.emit('message', '© Bona-Bot Cliente desconectado!');
+  console.log('© Bona-Bot Cliente desconectado', reason);
   client.initialize();
 });
 });
@@ -120,13 +120,13 @@ app.post('/zdg-message', [
     client.sendMessage(numberZDG, message).then(response => {
     res.status(200).json({
       status: true,
-      message: 'BOT-ZDG Mensagem enviada',
+      message: 'Bona-Bot Mensagem enviada',
       response: response
     });
     }).catch(err => {
     res.status(500).json({
       status: false,
-      message: 'BOT-ZDG Mensagem não enviada',
+      message: 'Bona-Bot Mensagem não enviada',
       response: err.text
     });
     });
@@ -136,13 +136,13 @@ app.post('/zdg-message', [
     client.sendMessage(numberZDG, message).then(response => {
     res.status(200).json({
       status: true,
-      message: 'BOT-ZDG Mensagem enviada',
+      message: 'Bona-Bot Mensagem enviada',
       response: response
     });
     }).catch(err => {
     res.status(500).json({
       status: false,
-      message: 'BOT-ZDG Mensagem não enviada',
+      message: 'Bona-Bot Mensagem não enviada',
       response: err.text
     });
     });
@@ -152,13 +152,13 @@ app.post('/zdg-message', [
     client.sendMessage(numberZDG, message).then(response => {
     res.status(200).json({
       status: true,
-      message: 'BOT-ZDG Mensagem enviada',
+      message: 'Bona-Bot Mensagem enviada',
       response: response
     });
     }).catch(err => {
     res.status(500).json({
       status: false,
-      message: 'BOT-ZDG Mensagem não enviada',
+      message: 'Bona-Bot Mensagem não enviada',
       response: err.text
     });
     });
@@ -207,13 +207,13 @@ app.post('/zdg-media', [
     client.sendMessage(numberZDG, media, {caption: caption}).then(response => {
     res.status(200).json({
       status: true,
-      message: 'BOT-ZDG Imagem enviada',
+      message: 'Bona-Bot Imagem enviada',
       response: response
     });
     }).catch(err => {
     res.status(500).json({
       status: false,
-      message: 'BOT-ZDG Imagem não enviada',
+      message: 'Bona-Bot Imagem não enviada',
       response: err.text
     });
     });
@@ -223,13 +223,13 @@ app.post('/zdg-media', [
     client.sendMessage(numberZDG, media, {caption: caption}).then(response => {
     res.status(200).json({
       status: true,
-      message: 'BOT-ZDG Imagem enviada',
+      message: 'Bona-Bot Imagem enviada',
       response: response
     });
     }).catch(err => {
     res.status(500).json({
       status: false,
-      message: 'BOT-ZDG Imagem não enviada',
+      message: 'Bona-Bot Imagem não enviada',
       response: err.text
     });
     });
@@ -239,13 +239,13 @@ app.post('/zdg-media', [
     client.sendMessage(numberZDG, media, {caption: caption}).then(response => {
     res.status(200).json({
       status: true,
-      message: 'BOT-ZDG Imagem enviada',
+      message: 'Bona-Bot Imagem enviada',
       response: response
     });
     }).catch(err => {
     res.status(500).json({
       status: false,
-      message: 'BOT-ZDG Imagem não enviada',
+      message: 'Bona-Bot Imagem não enviada',
       response: err.text
     });
     });
@@ -267,42 +267,42 @@ client.on('message', async msg => {
 
   if (msg.body !== null && msg.body === "1") {
     //msg.reply("*COMUNIDADE ZDG*\n\n🤪 _Usar o WPP de maneira manual é prejudicial a saúde_\r\n\r\nhttps://comunidadezdg.com.br/ \r\n\r\n⏱️ As inscrições estão *ABERTAS*\n\nAssista o vídeo abaixo e entenda porque tanta gente comum está economizando tempo e ganhando dinheiro explorando a API do WPP, mesmo sem saber nada de programação.\n\n📺 https://youtu.be/mr0BvO9quhw");
-    msg.reply("Na *Comunidade ZDG* você vai integrar APIs, automações com chatbots e sistemas de atendimento multiusuário para whatsapp. Com *scripts para copiar e colar e suporte todos os dias no grupo de alunos*.\n\nhttps://comunidadezdg.com.br/ \n\n*⏱️ As inscrições estão ABERTAS*\n\nAssista o vídeo abaixo e entenda porque tanta gente comum está economizando tempo e ganhando dinheiro explorando a API do WPP, mesmo sem saber nada de programação.\n\n📺 https://www.youtube.com/watch?v=AoRhC_X6p5w")
+    msg.reply("🛍️ Atacado \r\n\r\ Se você está interessado em comprar nossos produtos no atacado, você está no lugar certo!\r\n\r\ Oferecemos descontos especiais para compras em grande quantidade. \r\n\r\ Por favor, nos forneça mais detalhes sobre o que você está procurando, e teremos prazer em ajudar.")
   } 
   
   else if (msg.body !== null && msg.body === "2") {
-    msg.reply("*" + nomeContato + "*, na Comunidade ZDG, você vai:\n\n- Utilizar códigos já testados para automatizar seu atendimento com chatbots no whatsapp\n- Criar e aplicativos para gestão de CRM e plataformas multiusuários para chats de atendimento\n- Aprender integrações com ferramentas e APIs que já foram testadas e aprovadas pela comunidade\n- Curadoria de plugins e ferramentas gratuitas para impulsionar o marketing de conversa no seu negócio\n- Se conectar a mais de 2.000 alunos que também estão estudando e implementando soluções de marketing de conversa\n- Grupo de alunos organizado por tópicos\n- Ter acesso ao meu suporte pessoal todos os dias");
+    msg.reply("*" + nomeContato + "*🔄 Políticas de Troca \r\n\r\ Nossas políticas de troca foram projetadas para garantir sua satisfação. Caso deseje saber mais sobre como funcionam as trocas de produtos, prazos e condições, você está no lugar certo. \r\n\r\ Informe-nos sobre o produto em questão, e explicaremos o procedimento em detalhes.");
   }
   
   else if (msg.body !== null && msg.body === "3") {
-    msg.reply("*" + nomeContato + "*, " + "essas são as principais APIs que a ZDG vai te ensinar a usar com o WhatsApp:\nBaileys, Venom-BOT, WPPConnect, WPPWeb-JS e Cloud API (Api Oficial)\n\n*Essas são as principais integrações que a ZDG vai te ensinar a fazer com o WhatsApp:*\nBubble, WordPress (WooCommerce e Elementor), Botpress, N8N, DialogFlow, ChatWoot e plataformas como Hotmart, Edduz, Monetizze, Rd Station, Mautic, Google Sheets, Active Campaing, entre outras.");
+    msg.reply("*" + nomeContato + "*, " + "Ficamos felizes em saber que você está interessado em nossas promoções! Temos diversas ofertas incríveis em nosso catálogo.\r\n\r\ Poderia nos dizer qual tipo de produtos você está procurando ou se há alguma promoção específica que gostaria de conhecer?");
   }
   
   else if (msg.body !== null && msg.body === "4") {
 
         const contact = await msg.getContact();
         setTimeout(function() {
-            msg.reply(`@${contact.number}` + ' seu contato já foi encaminhado para o Pedrinho');  
-            client.sendMessage('5515998566622@c.us','Contato ZDG. https://wa.me/' + `${contact.number}`);
+            msg.reply(`@${contact.number}` + ' seu contato já foi encaminhado para o nosso atendimento');  
+            client.sendMessage('554799102659c.us','Contato Essenciais. https://wa.me/' + `${contact.number}`);
 	    //client.sendMessage('5515998566622@c.us',`${contact.number}`);
           },1000 + Math.floor(Math.random() * 1000));
   
   }
   
   else if (msg.body !== null && msg.body === "4") {
-    msg.reply("Seu contato já foi encaminhado para o Pedrinho");
+    msg.reply("👤 Atendimento Humano \n\n Perfeito! Encaminharemos você para um atendente humano que poderá ajudar com suas perguntas de maneira mais direta. \n\nAguarde um momento, por favor.");
   }
   
-  else if (msg.body !== null && msg.body === "5") {
-    msg.reply("*" + nomeContato + "*, " + "aproveite o conteúdo e aprenda em poucos minutos como colocar sua API de WPP no ar, gratuitamente:\r\n\r\n🎥 https://youtu.be/sF9uJqVfWpg");
+  else if (msg.body !== null && msg.body === "6") {
+    msg.reply("*" + nomeContato + "*, " + " 💳 Formas de Pagamento \n\n Oferecemos diversas opções de pagamento para tornar suas compras mais convenientes. Por favor, nos informe quais são suas preferências de pagamento, e explicaremos as opções disponíveis em detalhes.");
   }
   
   else if (msg.body !== null && msg.body === "7") {
-    msg.reply("*" + nomeContato + "*, " + ", que ótimo, vou te enviar alguns cases de sucesso:\n\n📺 https://youtu.be/KHGchIAZ5i0\nGustavo: A estratégia mais barata, eficiente e totalmente escalável.\n\n📺 https://youtu.be/S4Cwrnn_Llk\nNatália: Nós aumentamos o nosso faturamento e vendemos pra mais clientes com a estratégia ZDG.\n\n📺 https://youtu.be/XP2ns7TOdIQ\nYuri: A ferramenta me ajudou muito com as automações da minha loja online.\n\n📺 https://youtu.be/KBedG3TcBRw\nFrancisco: O Pedrinho pega na nossa mão. Se eu consegui, você também consegue.\n\n📺 https://youtu.be/L7dEoEwqv-0\nBruno: A Comunidade ZDG e o suporte do Pedrinho são incríveis. Depois que eu adquiri o curso eu deixei de gastar R$300,00 todo mês com outras automações.\n\n📺 https://youtu.be/StRiSLS5ckg\nRodrigo: Eu sou desenvolvedor de sistemas, e venho utilizando as soluções do Pedrinho para integrar nos meus sistemas, e o ganho de tempo é excepcional.\n\n📺 https://youtu.be/sAJUDsUHZOw\nDarley: A Comunidade ZDG democratizou o uso das APIs do WPP.\n\n📺 https://youtu.be/S4Cwrnn_Llk\nNatália: Nós aumentamos o nosso faturamento e vendemos pra mais clientes com a estratégia ZDG.\n\n📺 https://youtu.be/crO8iS4R-UU \nndré: O Pedrinho compartilha muitas informações na Comunidade ZDG.\n\n📺 https://youtu.be/LDHFX32AuN0\nEdson: O retorno que tenho no meu trabalho com as informações do Pedrinho, fez o meu investimento sair de graça.\n\n📺 https://youtu.be/F3YahjtE7q8\nDaniel: Conteúdo de muita qualidade. Obrigado, professor Pedrinho.\n\n📺 https://youtu.be/YtRpGgZKjWI\nMarcelo: Tenho uma agência digital e com o curso do Pedrinho nós criamos um novo produto e já estamos vendendor.\n\n📺 https://youtu.be/0DlOJCg_Eso\nKleber: O Pedrinho tem uma didática excelente e com o curso dele, consegui colocar minha API para rodar 24 horas e estou fazendo vendas todos os dias.\n\n📺 https://youtu.be/rsbUJrPqJeA\nMárcio: Antes de adquirir eu tinha pouco conhecimento, mas consegui aprender muito sobre API com o Pedrinho e o pessoal da comunidade.\n\n📺 https://youtu.be/YvlNd-dM9oo\nZé: O Pedrinho tem um conteúdo libertador. Foi o melhor investimento que eu fiz. Conteúdo surreal.\n\n📺 https://www.youtube.com/watch?v=mHqEQp94CiE\nLéo: Acoplamos o Método ZDG aos nossos lançamento e otimizamos os nossos resultados.\n\n📺 https://youtu.be/pu6PpNRJyoM\nRenato: A ZDG é um método que vai permitir você aumentar o seu faturamento em pelo menos 30%.\n\n📺 https://www.youtube.com/watch?v=08wzrPorZcI\nGabi: Implementei a estratégia sem saber nada de programação\n\n📺 https://youtu.be/10cR-c5rOKE\nDouglas: Depois de implementar as soluções do Pedrinho eu tive um aumento de 30% no meu faturamento, sem contar que na comunidade ZDG todos se ajudam.\n\n📺 https://youtu.be/kFPhpl5uyyU\nDanielle: Sem sombra de dúvida ter conhecido o Pedrinho e o seu conteúdo foi a melhor coisa que aconteceu comigo.\n\n📺 https://youtu.be/3TCPRstg5M0\nCalebe: O sistema Zap das Galáxias foi fundamental na elaboração e na execução das estratégias do meu negócio.\n\n📺 https://youtu.be/XfA8VZck5S0\nArtur: As soluções da comunidade me ajudaram muito a aumentar as minhas vendas e a interagir com os meus clientes de maneira automática. O suporte é incrível.\n\n📺 https://youtu.be/4M-P3gn9iqU\nSamuel: A Comunidade ZDG tem muito conteúdo legal, que da pra você utilizar no seu dia a dia pra meios profissionais. Depois que aprendi o método, nunca mais tive bloqueios.");
+    msg.reply("*" + nomeContato + "*, " + ", ❓ FAQ (Perguntas Frequentes) \n\n Nossa seção de Perguntas Frequentes contém informações valiosas sobre diversos tópicos. Se você deseja encontrar respostas rápidas, você pode conferir nossa seção FAQ em nosso site. Caso não encontre a informação que procura, não hesite em perguntar.");
   }
 
   else if (msg.body !== null && msg.body === "8") {
-    msg.reply("😁 Hello, how are you doing?\n\nThis is an automated response and is not monitored by a human. If you would like to speak with a representative, please choose option 4.\r\n\r\nChoose one of the options below to start our conversation:\r\n\r\n*[ 9 ]* - I want to secure my spot in the ZDG Community.\r\n*[ 10 ]* - What will I receive by joining the ZDG group?\r\n*[ 11 ]* - What technologies and tools will I learn in the ZDG Community?\r\n*[ 12 ]* - I would like to speak with Pedrinho, but thank you for trying to help me.\r\n*[ 13 ]* - I want to learn how to create my API for FREE.\r\n*[ 14 ]* - I want to know the entire syllabus of the ZDG Community.\r\n*[ 15 ]* - I would like to see some case studies.\r\n*[ 0 ]* - Em *PORTUGUÊS*, por favor!\r\n*[ 16 ]* - En ESPAÑOL, por favor.");
+    msg.reply("😁 Sure! If you prefer to continue in English, please let us know how we can assist you. Feel free to ask your questions or share your concerns, and we'll be happy to help you.");
   }
   
   else if (msg.body !== null && msg.body === "9") {
@@ -377,20 +377,18 @@ client.on('message', async msg => {
     msg.reply(", genial, te enviaré algunos casos de éxito:\n\n📺 https://youtu.be/KHGchIAZ5i0\nGustavo: La estrategia más económica, eficiente y completamente escalable.\n\n📺 https://youtu.be/S4Cwrnn_Llk\nNatália: Aumentamos nuestros ingresos y vendemos a más clientes con la estrategia ZDG.\n\n📺 https://youtu.be/XP2ns7TOdIQ\nYuri: La herramienta me ha ayudado mucho con las automatizaciones de mi tienda en línea.\n\n📺 https://youtu.be/KBedG3TcBRw\nFrancisco: Pedrinho nos guía. Si yo pude lograrlo, tú también puedes.\n\n📺 https://youtu.be/L7dEoEwqv-0\nBruno: La Comunidad ZDG y el soporte de Pedrinho son increíbles. Después de adquirir el curso, dejé de gastar R$300,00 al mes en otras automatizaciones.\n\n📺 https://youtu.be/StRiSLS5ckg\nRodrigo: Soy desarrollador de sistemas y he estado utilizando las soluciones de Pedrinho para integrarlas en mis sistemas, y el ahorro de tiempo es excepcional.\n\n📺 https://youtu.be/sAJUDsUHZOw\nDarley: La Comunidad ZDG ha democratizado el uso de las APIs de WPP.\n\n📺 https://youtu.be/S4Cwrnn_Llk\nNatália: Aumentamos nuestros ingresos y vendemos a más clientes con la estrategia ZDG.\n\n📺 https://youtu.be/crO8iS4R-UU\nAndré: Pedrinho comparte mucha información en la Comunidad ZDG.\n\n📺 https://youtu.be/LDHFX32AuN0\nEdson: El retorno que obtengo en mi trabajo con la información de Pedrinho ha hecho que mi inversión sea gratuita.\n\n📺 https://youtu.be/F3YahjtE7q8\nDaniel: Contenido de gran calidad. Gracias, profesor Pedrinho.\n\n📺 https://youtu.be/YtRpGgZKjWI\nMarcelo: Tengo una agencia digital y con el curso de Pedrinho creamos un nuevo producto y ya lo estamos vendiendo.\n\n📺 https://youtu.be/0DlOJCg_Eso\nKleber: Pedrinho tiene una excelente didáctica y con su curso logré que mi API funcione las 24 horas y estoy generando ventas todos los días.\n\n📺 https://youtu.be/rsbUJrPqJeA\nMárcio: Antes de adquirirlo, tenía poco conocimiento, pero aprendí mucho sobre API con Pedrinho y la comunidad.\n\n📺 https://youtu.be/YvlNd-dM9oo\nZé: Pedrinho tiene un contenido liberador. Fue la mejor inversión que hice. Contenido surrealista.\n\n📺 https://www.youtube.com/watch?v=mHqEQp94CiE\nLéo: Hemos acoplado el Método ZDG a nuestros lanzamientos y hemos optimizado nuestros resultados.\n\n📺 https://youtu.be/pu6PpNRJyoM\nRenato: ZDG es un método que te permitirá aumentar tus ingresos en al menos un 30%.\n\n📺 https://www.youtube.com/watch?v=08wzrPorZcI\nGabi: Implementé la estrategia sin saber nada de programación.\n\n📺 https://youtu.be/10cR-c5rOKE\nDouglas: Después de implementar las soluciones de Pedrinho, aumenté mis ingresos en un 30%, sin mencionar que en la comunidad ZDG todos se ayudan mutuamente.\n\n📺 https://youtu.be/kFPhpl5uyyU\nDanielle: Sin lugar a dudas, conocer a Pedrinho y su contenido fue lo mejor que me pasó.\n\n📺 https://youtu.be/3TCPRstg5M0\nCalebe: El sistema Zap das Galáxias fue fundamental en el desarrollo y ejecución de las estrategias de mi negocio.\n\n📺 https://youtu.be/XfA8VZck5S0\nArtur: Las soluciones de la comunidad me han ayudado mucho a aumentar mis ventas y a interactuar automáticamente con mis clientes. El soporte es increíble.\n\n📺 https://youtu.be/4M-P3gn9iqU\nSamuel: La Comunidad ZDG tiene mucho contenido interesante que se puede utilizar en el día a día y en el ámbito profesional. Después de aprender el método, nunca más tuve bloqueos.");
   }
 
-  else if (msg.body !== null && msg.body === "6"){
+  else if (msg.body !== null && msg.body === "5"){
     const indice = MessageMedia.fromFilePath('./indice.pdf');
-    client.sendMessage(msg.from, indice, {caption: 'Comunidade ZDG 2.0'});
+    client.sendMessage(msg.from, indice, {caption: 'Manual revendedor'});
     delay(4500).then(async function() {
-      msg.reply("👨‍🏫 INFORMAÇÃO BÁSICA SOBRE APIs\r\n👨‍🏫 INFORMAÇÃO BÁSICA SOBRE APIs\r\n\r\n🚀 MÓDULO #00 - ZDG APLICADA A LANÇAMENTOS\r\n👨‍🏫 GRUPO DE ALUNOS NO TELEGRAM\r\n🎁 MENTORIA INDIVIDUAL - AGUARDA PARA LIBERAÇÃO DA SUA AGENDA\r\n🚀 0.0 - ZDG aplicada ao seu lançamento\r\n🚀 0.1 - Instalando sua API no Contabo\r\n🚀 0.1b - Disponibilizando múltiplos serviços da sua API na Contabo\r\n🚀 0.2 - Instalação do BOT Gestor de Grupos\r\n🚀 0.3a - Instalação do Multi-Disparador\r\n🚀 0.3b - Instalação do Disparador de Áudio Gravado\r\n🚀 0.4 - Notificação automática para o seu lançamento (WebHooks)\r\n🚀 0.5 - 📌 Atualização dia 21/10/21 - DOWNLOAD do DISPARADOR Oficial da ZDG e Extrator de Contatos\r\n🚀 0.6 - BOT Gestor de Grupos + Telegram\r\n🚀 0.7 - 📌 Atualização de Segurança 13/09/2021 - BOT Gestor de Grupos\r\n🚀 0.8 - Modelo de mensagens individuais para lançamentos\r\n\r\n🚀 MÓDULO #01 - INTRODUÇÃO A ZDG\r\n⚠️ Leia atentamente essa instrução antes de iniciar os seus estudos\r\n🚀 1.0 - Quem sou eu? E a LGPD?\r\n🚀 1.1 - Introdução a ZDG\r\n\r\n🚀 MÓDULO #02 - DEFININDO A OPERADORA E O APP ADEQUADO\r\n🚀 2.0 - Escolha da operadora\r\n🚀 2.1 - O aplicativo de WPP indicado\r\n\r\n🚀 MÓDULO #03 - O FORMATO DA LISTA DE CLIENTES\r\n🚀 3.0 - Preparando a lista de leads (clientes)\r\n🚀 3.1 - Sincronizando o Blue com o Google Contatos\r\n\r\n🚀 MÓDULO #04 - SOFTWARES, EXTENSÕES E CHIPS\r\n🚀 4.0 - Softwares e extensões\r\n🚀 4.1 - Fundamento do BAN e estruturas complexas de disparo\r\n🚀 4.2 - Chip de disparo vs Chip de atendimento\r\n\r\n🚀 MÓDULO #05 - DISPAROS NA PRÁTICA\r\n🚀 5.0 - Disparos na prática\r\n🚀 5.1 - Disparos na prática\r\n🚀 5.2 - Disparos na prática\r\n🚀 5.3 - Disparos na prática\r\n🚀 5.4 - Disparos na prática\r\n🚀 5.5 - Disparos na prática\r\n🚀 5.6 - Disparos na prática\r\n🚀 5.7 - Disparos na prática\r\n🚀 5.8 - Disparos na prática\r\n🚀 5.9 - A Teoria dos Blocos\r\n🚀 6.0 - Mensagem inicial\r\n🚀 7.0 - Tratamento dos dados no excel\r\n🚀 8.0 - Gerando renda extra com a ZDG\r\n🚀 9.0 - Calculadora de Chips\r\n🚀 10.0 - Acelere o seu processo\r\n🚀 11.0 - Como formatar o conteúdo ideal para o Zap\r\n🚀 12.0 - Manual de Disparo de Campanha\r\n🚀 13.0 - Manual Anti-SPAM\r\n🚀 14.0 - Compreendendo a criptografia e algoritmo do WPP\r\n🚀 15.0 - Planilha com o cronograma de envio de disparo\r\n\r\n🛸 BÔNUS GRUPOS\r\n🛸 16.0 - Clientes ocultos e números virtuais\r\n🛸 17.0 - GRUPOS de WPP - REDIRECIONAMENTO AUTOMÁTICO de GRAÇA!\r\n🛸 17.1 - GRUPOS de WPP - Aprenda como exportar todos os contatos dos seus grupos de WPP em uma planilha no Excel\r\n🛸 17.2 - GRUPOS de WPP - Aprenda como extrair as informações do GRUPO com requisições POST\r\n\r\n🤖 BÔNUS CHATBOT\r\n🤖 18.0 - BOT Gestor de Grupos\r\n🤖 19.0 - Rede de robôs para envio de mensagens e arquivos através da API do WPP\r\n🤖 20.0 - CHATBOT com perguntas e respostas nativas no JS\r\n🤖 20.1 - CHATBOT dinâmico acessando o banco de dados em tempo real\r\n🤖 20.2 - CHATBOT dinâmico + CHROME\r\n🤖 21.1 - Chatbot + DialogFlow (Instalação até configuração de respostas de texto)\r\n🤖 21.2 - Chatbot + DialogFlow (Respondendo as intents de texto e áudio pelo WPP)\r\n🤖 22.0 - Previsão do Tempo com o DialogFlow\r\n🤖 23.0 - GAME para WPP\r\n🤖 24.0 - Múltiplos atendentes - 1 número, vários usuários\r\n🤖 24.1 - Múltiplos atendentes - 1 número, vários usuários WINDOWS\r\n🤖 24.2 - Múltiplos atendentes - 1 número, vários usuários CONTABO\r\n🤖 24.3 - Múltiplos atendentes - 1 número, vários usuários + Disparo automática\r\n🤖 24.4 - Múltiplos atendentes - 1 número, vários usuários + Grupos + DialogFlow\r\n🤖 24.5 - Múltiplos atendentes - 1 número, vários usuários + Histórico\r\n🤖 24.6 - Múltiplos atendentes - 1 número, vários usuários + SUB e FTP\r\n🤖 24.7 - Múltiplos atendentes - 1 número, vários usuários + Customização do Front AWS\r\n🤖 24.8 - Múltiplos atendentes - 1 número, vários usuários + Customização do Front CONTABO\r\n🤖 24.9 - Múltiplos atendentes - 1 número, vários usuários + MD\r\n🤖 24.10 - Múltiplos atendentes - 1 número, vários usuários + SMS + Ligação Telefônica\r\n🤖 24.11 - Múltiplos atendentes - 1 número, vários usuários + Múltiplas instâncias na mesma VPS\r\n🤖 24.12 - Múltiplos atendentes - 1 número, vários usuários + Múltiplas instâncias Localhost\r\n🤖 24.13 - Múltiplos atendentes - 1 número, vários usuários + Direct + Disparo de Mídias\r\n🤖 24.14 - Múltiplos atendentes - 1 número, vários usuários + REPO OFICIAL NO GITHUB\r\n🤖 24.15 - Múltiplos atendentes - 1 número, vários usuários + API Externa\r\n🤖 25.0 - Ligando o seu BOT na nuvem em uma VPS (Virtual Private Server)\r\n🤖 26.0 - Criando o seu BOT ISCA + Manual PDF\r\n🤖 26.1 - Introdução ao SKEdit\r\n🤖 26.2 - Captura automática de leads\r\n🤖 27.0 - Chatbot para Instagram e DialogFlow\r\n🤖 27.1 - Chatbot para Instagram com WPP\r\n🤖 28.0 - Robô gratuito para disparo de mensagem e captura de dados com a API do WPP - WPPConnect POSTGRE\r\n🤖 28.1 - Robô gratuito para disparo de mensagem e captura de dados com a API do WPP - WPPConnect MYSQL\r\n🤖 28.2 - Saiba como integrar a API do WPP WPPConnect com o DialogFlow\r\n🤖 29.0 - Aprenda como integrar a Venom-BOT com o DialogFlow e explore essa API gratuita do WPP\r\n🤖 29.1 - API REST para enviar Listas e Botões no WPP utilizando a VENOM-BOT\r\n🤖 29.2 - Robô para disparo de mensagem e captura de dados com a API do WPP - Venom-BOT MongoDB\r\n🤖 29.3 - Robô para disparo de mensagem e captura de dados com a API do WPP - Venom-BOT MYSQL\r\n🤖 29.4 - Robô para disparo de mensagem e captura de dados com a API do WPP - Venom-BOT POSTGRE\r\n🤖 29.5 - Exporte o QRCode da Venom-BOT e consuma a API do WPP\r\n🤖 29.6 - Crie e gerencie múltiplas instâncias da API do WPP de graça, utilizando a Venom-BOT\r\n🤖 29.7 - Aprenda como integrar a Venom-BOT com o DialogFlow e explorar Listas e Botões com a API do WPP\r\n🤖 29.8 - Robô gratuito para disparo de listas e botões de graça com a API do WPP - Venom-BOT\r\n🤖 29.9 - Com nove ou sem nove? Descubra como configurar sua API de WPP contra a regra do número fantasma\r\n🤖 29.10 - Robô gratuito para realizar ligações telefônicas com a API do WPP - Venom-BOT\r\n🤖 29.11 -Robô gratuito para consultar informações do mercado de criptomoedas na API do WPP - Venom-BOT\r\n🤖 29.12 - Aprenda a validar contatos de WPP em massa com a API do WPP Venom-BOT\r\n🤖 29.13 - Aprenda como criar um CRUD para manipular o MYSQL e consumir via Venom-BOT\r\n\r\n👨‍💻 BÔNUS NOTIFICAÇÕES AUTOMÁTICAS\r\n👨‍💻30.0 - Criando o seu FUNIL DE VENDAS e BOT utilizando PHP + ChatAPI\r\n👨‍💻 30.1 - WPP API de graça + Envio de Mídia + Envio de Texto para Grupos + WEBHOOK para HOTMART\r\n👨‍💻 31.0 - Notificação grátis via WPP API para leads\r\n👨‍💻 31.1 - Criando botões e listas com a API do WPP\r\n👨‍💻 31.2 - Aprenda como enviar arquivos de mídia e gerenciar grupos através da WPP API\r\n👨‍💻 32.0 - Como manter a API ativa sem desconexões usando a conta gratuita da Heroku\r\n👨‍💻 33.0 - WPP API FREE e WooCommerce\r\n👨‍💻 33.1 - WPP API FREE e WooCommerce IMAGENS\r\n👨‍💻 33.2 - Envie listas e botões de graça usando a API do WPP e WooCommerce\r\n👨‍💻 34.0 - Multi instância\r\n👨‍💻 35.0 - Instale a API dentro de uma VPS\r\n👨‍💻 36.0 - CHAT API + Elementor\r\n👨‍💻 37.0 - CHAT-API + Hotmart + Eduzz + Monetizze\r\n👨‍💻 38.0 - Notificar o seu lead capturado no Elementor PRO ou no FORM HTML através do WPP com API Gratuita\r\n👨‍💻 38.1 - Envie listas e botões de graça usando a API do WPP e Elementor\r\n👨‍💻 39.0 - Notificação automática no Bubble através da API do WPP\r\n👨‍💻 40.0 - Envio de arquivos no Bubble através da API do WPP\r\n👨‍💻 40.1 - Saiba como incorporar a API do WPP com o seu aplicativo Bubble\r\n👨‍💻 41.0 - Envio de arquivos no Bubble através da API do Instagram\r\n👨‍💻 42.0 - Notificação automática grátis com API do WPP para clientes RD Station e Active Campaign (CRM)\r\n👨‍💻 43.0 - Bot disparador de mensagens e captura de dados com a API do WPP e Google Planilhas (Sheet)\r\n👨‍💻 44.0 - Introdução a Venom-BOT\r\n👨‍💻 45.0 - Como exportar todas as conversas do WPP em arquivo JSON usando a API do WPP\r\n👨‍💻 46.0 - Game JOKENPO para WPP\r\n👨‍💻 46.1 - Consuma a API da ClickUp direto no WhastApp\r\n👨‍💻 46.2 - Consuma a API do Twitter através do WPP\r\n👨‍💻 47.0 - Aprenda como agendar o envio de mensagens automáticas usando a Api do WPP\r\n👨‍💻 48.0 - API REST de graça para enviar Listas e Botões no WPP\r\n👨‍💻 49.0 - Baileys, uma API leve, rápida e super estável + DialogFlow\r\n👨‍💻 49.1 - Baileys, uma API leve, rápida e super estável + MD\r\n👨‍💻 49.2 - Baileys, uma API leve, rápida e super estável + MD\r\n👨‍💻 49.3 - Saiba como instalar a API do WPP Baileys direto no seu Android (Termux), sem VPS ou PC\r\n👨‍💻 49.4 - Saiba como criar um robô de disparo automático com a Baileys\r\n👨‍💻 49.5 - Explorando as requisições post com a REST API da BAILEYS\r\n👨‍💻 49.6 - Aprenda como criar o Frontend para consumir o QRCode da Baileys\r\n👨‍💻 49.7 - Consumindo os dados do banco MYSQL via Baileys\r\n👨‍💻 50.0 - Aprenda como usar a API do WPP de graça com a nova versão de multi dispositivos (BETA - MD)\r\n👨‍💻 51.0 - Saiba como criar chatbots modernos com Botpress e a API do WPP de graça\r\n👨‍💻 51.1 - Saiba como instalar o Botpress direto na sua VPS e expor o serviço em um subdomínio\r\n👨‍💻 52.0 - Aprenda como enviar SMS através da API do WPP de graça e a Vonage\r\n👨‍💻 53.0 - Controle a API do WPP com a ponta dos seus dedos usando a biblioteca FINGERPOSE\r\n\r\n📰 BÔNUS WORDPRESS\r\n📰 61.0 - Introdução\r\n📰 62.0 - Registro do Domínio\r\n📰 63.0 - Contratação do servidor adequado com menos de R$15,00/Mês\r\n📰 64.0 - Apontando o DNS - Parte 1\r\n📰 64.1 - Ativando o certificado SSL gratuito - Parte 2\r\n📰 65.0 - Instalação e configuração do Wordpress - Parte 1\r\n📰 65.1 - Instalação e configuração do Wordpress - Parte 2\r\n📰 66.1 - Otimização e importação do modelo no Wordpress - Parte 1\r\n📰 66.2 - Otimização e importação do modelo no Wordpress - Parte 2\r\n📰 66.3- Otimização e importação do modelo no Wordpress - Parte 3\r\n📰 67.0 - Ativando o seu e-mail profissional\r\n\r\n🛸 ZDG\r\n🛸 LIVE #01 - Jornada do Lançamento com o WPP\r\n🛸 LIVE #02 - Jornada do Lançamento com o WPP\r\n🛸 LIVE #03 - Jornada do Lançamento com o WPP\r\n🛸 LIVE #04 - Jornada do Lançamento com o WPP\r\n🛸 LIVE #05 - Jornada do Lançamento com o WPP\r\n🛸 Blog de Disparo - Lançamento de produto digital com o Método ZDG\r\n🛸 Blog de Disparo - As queridinhas do 2.0");
-		});
+      msg.reply("Se você está interessado em se tornar um revendedor dos nossos produtos, temos ótimas oportunidades para você. \n\n Compartilhe um pouco mais sobre suas intenções e negócios, e teremos o prazer de orientá-lo sobre como se tornar um revendedor.")});
 	  
   }
 	else if (msg.body !== null && msg.body === "14"){
     const indic = MessageMedia.fromFilePath('./indice.pdf');
     client.sendMessage(msg.from, indic, {caption: 'Comunidade ZDG 2.0'});
     delay(4500).then(async function() {
-		  msg.reply("👨‍🏫 BASIC INFORMATION ABOUT APIs\r\n👨‍🏫 BASIC INFORMATION ABOUT APIs\r\n\r\n🚀 MODULE #00 - ZDG APPLIED TO RELEASES\r\n👨‍🏫 GROUP OF STUDENTS ON TELEGRAM\r\ n🎁 INDIVIDUAL MENTORING - WAITING FOR THE RELEASE OF YOUR SCHEDULE\r\n🚀 0.0 - ZDG applied to your release\r\n🚀 0.1 - Installing your API in Contabo\r\n🚀 0.1b - Making multiple services of your API available on Contabo\r\n🚀 0.2 - Installing the BOT Group Manager\r\n🚀 0.3a - Installing the Multi-Trigger\r\n🚀 0.3b - Installing the Recorded Audio Trigger\r\n🚀 0.4 - Automatic notification for its release (WebHooks)\r\n🚀 0.5 - 📌 Update on 10/21/21 - DOWNLOAD the Official ZDG TRIGGER and Contact Extractor\r\n🚀 0.6 - BOT Group Manager + Telegram\r\n 🚀 0.7 - 📌 Security Update 09/13/2021 - Group Manager BOT\r\n🚀 0.8 - Single message template for releases\r\n\r\n🚀 MODULE #01 - INTRODUCTION TO ZDG\r\n ⚠️ Read this instruction carefully before starting your studies\r\n🚀 1.0 - Who am I? What about LGPD?\r\n🚀 1.1 - Introduction to ZDG\r\n\r\n🚀 MODULE #02 - DEFINE THE SUITABLE OPERATOR AND APP\r\n🚀 2.0 - Operator choice\r\n🚀 2.1 - The indicated WPP application\r\n\r\n🚀 MODULE #03 - THE CUSTOMER LIST FORMAT\r\n🚀 3.0 - Preparing the list of leads (customers)\r\n🚀 3.1 - Syncing Blue with Google Contacts\r\n\r\n🚀 MODULE #04 - SOFTWARE, EXTENSIONS AND CHIPS\r\n🚀 4.0 - Software and extensions\r\n🚀 4.1 - Basics of BAN and complex trigger structures\r\ n🚀 4.2 - Trigger chip vs Attendance chip\r\n\r\n🚀 MODULE #05 - SHOOTING IN PRACTICE\r\n🚀 5.0 - Shooting in practice\r\n🚀 5.1 - Shooting in practice\r\n🚀 5.2 - Shooting in practice\r\n🚀 5.3 - Shooting in practice\r\n🚀 5.4 - Shooting in practice\r\n🚀 5.5 - Shooting in practice\r\n🚀 5.6 - Shooting in practice\r\n🚀 5.7 - Shooting in practice\r\n🚀 5.8 - Shooting in practice\r\n🚀 5.9 - The Theory of Blocks\r\n🚀 6.0 - Initial message\r\n🚀 7.0 - Data processing in excel\r\n🚀 8.0 - Generating extra income with ZDG\r\n🚀 9.0 - Chip Calculator\ r\n🚀 10.0 - Speed ​​up your process\r\n🚀 11.0 - How to format the ideal content for Zap\r\n🚀 12.0 - Campaign Shooting Manual\r\n🚀 13.0 - Anti-SPAM Manual\r \n🚀 14.0 - Understanding WPP encryption and algorithm\r\n🚀 15.0 - Spreadsheet with the trigger sending schedule\r\n\r\n🛸 BONUS GROUPS\r\n🛸 16.0 - Hidden customers and virtual numbers \r\n🛸 17.0 - WPP GROUPS - FREE AUTOMATIC REDIRECT!\r\n🛸 17.1 - WPP GROUPS - Learn how to export all contacts from your WPP groups and 17.2 - WPP GROUPS - Learn how to extract GROUP information with POST requests\r\n\r\n🤖 CHATBOT BONUS\r\n🤖 18.0 - Group Manager BOT\r \n🤖 19.0 - Network of robots for sending messages and files through the WPP API\r\n🤖 20.0 - CHATBOT with native questions and answers in JS\r\n🤖 20.1 - Dynamic CHATBOT accessing the database in time real\r\n🤖 20.2 - Dynamic CHATBOT + CHROME\r\n🤖 21.1 - Chatbot + DialogFlow (Installation until configuring text responses)\r\n🤖 21.2 - Chatbot + DialogFlow (Responding to text and audio intents via WPP)\r\n🤖 22.0 - Weather Forecast with DialogFlow\r\n🤖 23.0 - GAME for WPP\r\n🤖 24.0 - Multiple attendants - 1 number, multiple users\r\n🤖 24.1 - Multiple attendants - 1 number, multiple users WINDOWS\r\n🤖 24.2 - Multiple attendants - 1 number, multiple users CONTABO\r\n🤖 24.3 - Multiple attendants - 1 number, multiple users + Automatic trigger\r\n🤖 24.4 - Multiple attendants - 1 number, multiple users + Groups + DialogFlow\r\ n🤖 24.5 - Multiple attendants - 1 number, multiple users + History\r\n🤖 24.6 - Multiple attendants - 1 number, multiple users + SUB and FTP\r\n🤖 24.7 - Multiple attendants - 1 number, multiple users + Customization of Front AWS\r\n🤖 24.8 - Multiple attendants - 1 number, multiple users + Front CONTABO Customization\r\n🤖 24.9 - Multiple attendants - 1 number, multiple users + MD\r\n🤖 24.10 - Multiple attendants - 1 number, multiple users + SMS + Phone Call\r\n🤖 24.11 - Multiple attendants - 1 number, multiple users + Multiple instances on the same VPS\r\n🤖 24.12 - Multiple attendants - 1 number, multiple users + Multiple Localhost instances \r\n🤖 24.13 - Multiple attendants - 1 number, multiple users + Direct + Media Shooting\r\n🤖 24.1 4 - Multiple attendants - 1 number, multiple users + OFFICIAL REPO ON GITHUB\r\n🤖 24.15 - Multiple attendants - 1 number, multiple users + External API\r\n🤖 25.0 - Connecting your BOT in the cloud on a VPS ( Virtual Private Server)\r\n🤖 26.0 - Creating your BAIT BOT + PDF Manual\r\n🤖 26.1 - Introduction to SKEdit\r\n🤖 26.2 - Automatic lead capture\r\n🤖 27.0 - Chatbot for Instagram and DialogFlow\r\n🤖 27.1 - Chatbot for Instagram with WPP\r\n🤖 28.0 - Free robot for message triggering and data capture with WPP API - WPPConnect POSTGRE\r\n🤖 28.1 - Free robot for shooting messaging and data capture with WPP API - WPPConnect MYSQL\r\n🤖 28.2 - Learn how to integrate WPPConnect WPP API with DialogFlow\r\n🤖 29.0 - Learn how to integrate Venom-BOT with DialogFlow and explore this free WPP API\r\n🤖 29.1 - REST API to send Lists and Buttons on WPP using VENOM-BOT\r\n🤖 29.2 - Robot for message triggering and data capture with WPP API - Venom-BOT MongoDB\r\n🤖 29.3 - Robot for message triggering and data capture with WPP API - Venom-BOT MYSQL\r\n🤖 29.4 - Robot for message triggering and data capture with WPP API - Venom-BOT POSTGRE\r\n🤖 29.5 - Export the Venom-BOT QRCode and consume WPP API\r\n🤖 29.6 - Create and manage multiple instances of WPP API for free using Venom-BOT\r\n🤖 29.7 - Learn how to integrate Venom-BOT with DialogFlow and explore Lists and Buttons with WPP API\r\n🤖 29.8 - Free robot to shoot lists and buttons for free with WPP API - Venom-BOT\r\n🤖 29.9 - With nine or without nine? Find out how to configure your WPP API against the ghost number rule\r\n🤖 29.10 - Free robot to make phone calls with WPP API - Venom-BOT\r\n🤖 29.11 - Free robot to consult information from the market cryptocurrencies in WPP API - Venom-BOT\r\n🤖 29.12 - Learn to validate WPP contacts in bulk with WPP API Venom-BOT\r\n🤖 29.13 - Learn how to create a CRUD to manipulate MYSQL and consume via Venom-BOT\r\n\r\n👨‍💻 BONUS AUTOMATIC NOTIFICATIONS\r\n👨‍💻30.0 - Creating your SALES FUNNEL and BOT using PHP + ChatAPI\r\n👨‍💻 30.1 - WPP API for free + Media Upload + Text Upload to Groups + WEBHOOK for HOTMART\r\n👨‍💻 31.0 - Free notification via WPP API for leads\r\n👨‍💻 31.1 - Creating buttons and lists with WPP API \r\n👨‍💻 31.2 - Learn how to send media files and manage groups via WPP API\r\n👨‍💻 32.0 - How to keep API active without disconnections using Heroku free account\r\n👨‍ 💻 3 3.0 - WPP API FREE and WooCommerce\r\n👨‍💻 33.1 - WPP API FREE and WooCommerce IMAGES\r\n👨‍💻 33.2 - Send lists and buttons for free using WPP API and WooCommerce\r\n👨‍💻 34.0 - Multi instance\r\n👨‍💻 35.0 - Install the API inside a VPS\r\n👨‍💻 36.0 - CHAT API + Elementor\r\n👨‍💻 37.0 - CHAT-API + Hotmart + Eduzz + Monetizze\r\n👨‍💻 38.0 - Notify your lead captured in Elementor PRO or FORM HTML via WPP with Free API\r\n👨‍💻 38.1 - Send lists and buttons for free using WPP API and Elementor\r\n👨‍💻 39.0 - Automatic notification in Bubble via WPP API\r\n👨‍💻 40.0 - Sending files in Bubble via WPP API\r\n👨‍💻 40.1 - Learn how to embed WPP API with your Bubble app\r\n👨 ‍💻 41.0 - Sending files in Bubble via Instagram API\r\n👨‍💻 42.0 - Free automatic notification with WPP API for RD Station and Active Campaign (CRM) clients\r\n👨‍💻 43.0 - Bot message trigger and data capture with WPP API and Google Sheet s (Sheet)\r\n👨‍💻 44.0 - Introduction to Venom-BOT\r\n👨‍💻 45.0 - How to export all WPP conversations into JSON file using WPP API\r\n👨‍💻 46.0 - Game JOKENPO for WPP\r\n👨‍💻 46.1 - Consume the ClickUp API directly on WPP\r\n👨‍💻 46.2 - Consume the Twitter API via WPP\r\n👨‍💻 47.0 - Learn how schedule automatic messaging using WPP API\r\n👨‍💻 48.0 - Free REST API to send Lists and Buttons on WPP\r\n👨‍💻 49.0 - Baileys, a lightweight, fast and super stable API + DialogFlow\r\n👨‍💻 49.1 - Baileys, a lightweight, fast and super stable API + MD\r\n👨‍💻 49.2 - Baileys, a lightweight, fast and super stable API + MD\r\n👨‍💻 49.3 - Learn how to install WPP API Baileys directly on your Android (Termux), without VPS or PC\r\n👨‍💻 49.4 - Learn how to create an auto-firing robot with Baileys\r\n👨‍💻 49.5 - Exploring post requests with the REST API from BAILEYS\r\n👨‍💻 49.6 - Learn how to create the Frontend to consume Baileys QRCode\r\n👨‍💻 49.7 - Consuming MYSQL database data via Baileys\r\n👨‍💻 50.0 - Learn how use WPP API for free with new multi-device version (BETA - MD)\r\n👨‍💻 51.0 - Learn how to create modern chatbots with Botpress and WPP API for free\r\n👨‍💻 51.1 - Learn how to install Botpress directly on your VPS and expose the service on a subdomain\r\n👨‍💻 52.0 - Learn how to send SMS via WPP API for free and Vonage\r\n👨‍💻 53.0 - Control the WPP API at your fingertips using the FINGERPOSE library\r\n\r\n 📰 BONUS WORDPRESS\r\n📰 61.0 - Introduction\r\n📰 62.0 - Domain Registration\r\n📰 63.0 - Hiring the appropriate server with less than R$15.00/Month\r\n📰 64.0 - Pointing out the DNS - Part 1\r\n📰 64.1 - Enabling Free SSL Certificate - Part 2\r\n📰 65.0 - WordPress Installation and Configuration - Part 1\r\n📰 65.1 - WordPress Installation and Configuration - Part 2\ r\n📰 66.1 - Template Optimization and Import in Wordpress - Part 1\r\n📰 66.2 - Template Optimization and Import in Wordpress - Part 2\r\n📰 66.3- Template Optimization and Import in Wordpress - Part 3\r\n📰 67.0 - Activating your professional email\r\n\r\n🛸 ZDG\r\n🛸 LIVE #01 - Launch Journey with WPP\r\n🛸 LIVE #02 - Launch Journey with WPP\ r\n🛸 LIVE #03 - Launch Journey with WPP\r\n🛸 LIVE #04 - Launch Journey with WPP\r\n🛸 LIVE #05 - Launch Journey with WPP\r\n🛸 Blog Shooting - Launching a digital product with the ZDG Method\r\n🛸 Shooting Blog - As Darlings of 2.0");
-    });
+		  msg.reply("")});
 	}
     else if (msg.body !== null && msg.body === "22"){
     const index = MessageMedia.fromFilePath('./indice.pdf');
@@ -400,8 +398,8 @@ client.on('message', async msg => {
     });
 	}
 	 else if (msg.body !== null || msg.body === "0" || msg.type === 'ptt' || msg.hasMedia) {
-    msg.reply("*COMUNIDADE ZDG*\n\n🤪 _Usar o WPP de maneira manual é prejudicial a saúde_\r\n\r\nhttps://comunidadezdg.com.br/ \r\n\r\n⏱️ As inscrições estão *ABERTAS*");
-    const foto = MessageMedia.fromFilePath('./foto.jpeg');
+    msg.reply("🤖 Olá! Seja muito bem-vindo à Essenciais Express!\r\n\r\n🌐 Conheça nossos produtos incríveis em: [https://www.essenciaisexpress.shop/] \r\n\r\n⏰ Nosso horário de atendimento é das *09:00 às 18:00*, de segunda a sexta-feira. \r\n\r\n 📞 Se você tiver alguma dúvida, não hesite em nos contatar. Estamos aqui para ajudar!\r\n\r\n Atenciosamente, Equipe Essenciais Express");
+    const foto = MessageMedia.fromFilePath('./foto.png');
     client.sendMessage(msg.from, foto)
     delay(3000).then(async function() {
       try{
@@ -415,14 +413,14 @@ client.on('message', async msg => {
     delay(8000).then(async function() {
       const saudacaoes = ['Olá ' + nomeContato + ', tudo bem?', 'Oi ' + nomeContato + ', como vai você?', 'Opa ' + nomeContato + ', tudo certo?'];
       const saudacao = saudacaoes[Math.floor(Math.random() * saudacaoes.length)];
-      msg.reply(saudacao + " Esse é um atendimento automático, e não é monitorado por um humano. Caso queira falar com um atendente, escolha a opção 4. \r\n\r\nEscolha uma das opções abaixo para iniciarmos a nossa conversa: \r\n\r\n*[ 1 ]* - Quero garantir minha vaga na Comunidade ZDG. \r\n*[ 2 ]* - O que vou receber entrando para a turma da ZDG? \r\n*[ 3 ]*- Quais tecnologias e ferramentas eu vou aprender na comunidade ZDG? \r\n*[ 4 ]- Gostaria de falar com o Pedrinho, mas obrigado por tentar me ajudar.* \r\n*[ 5 ]*- Quero aprender como montar minha API de GRAÇA.\r\n*[ 6 ]*- Quero conhecer todo o conteúdo programático da Comunidade ZDG.\r\n*[ 7 ]*- Gostaria de conhecer alguns estudos de caso.  \r\n*[ 8 ]*- In *ENGLISH* please! \r\n*[ 16 ]*- En *ESPAÑOL* por favor.");
+      msg.reply(saudacao + " Esse é um atendimento automático, e não é monitorado por um humano. Caso queira falar com um atendente, escolha a opção *[4]*. \r\n\r\nEscolha uma das opções abaixo para iniciarmos a nossa conversa: \r\n\r\n*[ 1 ]* - Gostaria de informações sobre Atacado \r\n*[ 2 ]* - Politicas de troca \r\n*[ 3 ]*- Promoções \r\n*[ 4 ]* - Atendimento humano \r\n*[ 5 ]*- Revenda \r\n*[ 6 ]*- Formas de pagamento \r\n*[ 7 ]*-  FAQ  \r\n*[ 8 ]*- In *ENGLISH* please! \r\n*[ 16 ]*- En *ESPAÑOL* por favor.");
 		});
     
 	}
 });
 
-console.log("\nA Comunidade ZDG é a oportunidade perfeita para você aprender a criar soluções incríveis usando as APIs, sem precisar de experiência prévia com programação. Com conteúdo exclusivo e atualizado, você terá tudo o que precisa para criar robôs, sistemas de atendimento e automações do zero. O curso é projetado para iniciantes e avançados, e oferece um aprendizado prático e passo a passo para que você possa criar soluções incríveis.")
-console.log("\nIncreva-se agora acessando link: comunidadezdg.com.br\n")
+console.log("\n Bona-Bot, execução direta.")
+console.log("\nSuporte via (47)9 9702-0079\n")
     
 server.listen(port, function() {
         console.log('Aplicação rodando na porta *: ' + port + ' . Acesse no link: http://localhost:' + port);

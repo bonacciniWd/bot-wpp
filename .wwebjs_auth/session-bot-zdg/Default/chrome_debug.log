@@ -1,0 +1,5 @@
+[0822/205539.470:ERROR:dxva_video_decode_accelerator_win.cc(1426)] DXVAVDA fatal error: Could not load mf.dll: Não foi possível encontrar o módulo especificado. (0x7E)
+[0822/205753.126:INFO:CONSOLE(22)] "Warning: TT: undefined function: 32", source: https://web.whatsapp.com/pdf.worker.96d1bc1f3d0105cd5a81bae7a9dad228.js (22)
+[0822/205914.007:INFO:CONSOLE(22)] "Warning: TT: undefined function: 32", source: https://web.whatsapp.com/pdf.worker.96d1bc1f3d0105cd5a81bae7a9dad228.js (22)
+[0822/210136.975:WARNING:dns_config_service_win.cc(509)] Failed to read DnsConfig.
+[0822/210552.979:WARNING:dns_config_service_win.cc(509)] Failed to read DnsConfig.
